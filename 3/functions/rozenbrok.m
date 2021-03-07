@@ -11,11 +11,11 @@ function [u, t] = rozenbrok(u0, alpha, t)
             for k=1:size(u0, 2)
                 du = zeros(size(u0));
                 du(j) = h;
-                value = (f(u(i,:) + du, t(i)) - f(u(i,:) - du, t(i))) / (2 * h);
+                value = (f3(u(i,:) + du, t(i)) - f3(u(i,:) - du, t(i))) / (2 * h);
                 fu(j, k) = value(k);
             end
         end
-        w = linsolve((eye(size(fu, 1)) - alpha * tau * fu'), f(u(i, :), t(i) + tau / 2));
+        w = linsolve((eye(size(fu, 1)) - alpha * tau * fu'), f3(u(i, :), t(i) + tau / 2));
         u(i+1,:) = u(i,:) + tau * real(w)';
     end
 end
