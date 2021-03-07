@@ -60,6 +60,7 @@ for j=1:3
     plots_lables(j + j) = label2;
 end
 
+% Добавляем в легендку подписи для метода Рунге Кутта
 plots(j + j + 1) = rk_plot(1);
 plots(j + j + 2) = rk_plot(2);
 plots_lables(j+j+1) = rk_label(1);
